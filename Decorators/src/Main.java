@@ -57,7 +57,7 @@ public class Main {
             System.out.print(in.readStudent().toString());
             System.out.print(in.readStudent().toString());
         }
-        catch (IOException e) {
+        catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }

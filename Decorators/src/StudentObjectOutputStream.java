@@ -10,13 +10,12 @@ public class StudentObjectOutputStream extends OutputStream {
         this.out = new ObjectOutputStream(out);
     }
 
-    public void writeStudent(Student student) {
+    public void writeStudent(Student student) throws IOException {
         try {
             out.writeObject(student);
-            out.flush();
         }
         catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new IOException("Unable to write student", e);
         }
     }
 

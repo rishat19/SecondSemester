@@ -10,16 +10,14 @@ public class StudentDataOutputStream extends OutputStream {
         this.out = new DataOutputStream(out);
     }
 
-    public void writeStudent(Student student) {
+    public void writeStudent(Student student) throws IOException {
         try {
-            int group = student.getGroup();
             out.writeUTF(student.getName());
             out.writeInt(student.getGroup());
             out.writeDouble(student.getRating());
-            out.flush();
         }
         catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new IOException("Unable to write student", e);
         }
     }
 

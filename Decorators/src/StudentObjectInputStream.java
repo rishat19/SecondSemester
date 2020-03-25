@@ -8,14 +8,16 @@ public class StudentObjectInputStream extends InputStream {
         this.in = new ObjectInputStream(in);
     }
 
-    public Student readStudent() {
+    public Student readStudent() throws IOException, ClassNotFoundException {
         try {
             return (Student) in.readObject();
         }
-        catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
+        catch (IOException e) {
+            throw new IOException("Unable to read student", e);
         }
-        return null;
+        catch (ClassNotFoundException e) {
+            throw new ClassNotFoundException("Class not found", e);
+        }
     }
 
     @Override

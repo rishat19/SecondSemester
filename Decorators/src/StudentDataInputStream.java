@@ -11,7 +11,7 @@ public class StudentDataInputStream extends InputStream {
         this.in = new DataInputStream(in);
     }
 
-    public Student readStudent() {
+    public Student readStudent() throws IOException {
         try {
             String name = in.readUTF();
             int group = in.readInt();
@@ -19,9 +19,8 @@ public class StudentDataInputStream extends InputStream {
             return new Student(name, group, rating);
         }
         catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new IOException("Unable to read student", e);
         }
-        return null;
     }
 
     @Override
