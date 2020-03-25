@@ -3,7 +3,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class StudentSerialisation {
+public class StudentSerialization {
 
     public static void write(Collection<Student> students, String path) {
         try (OutputStream out = new FileOutputStream(path)) {

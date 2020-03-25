@@ -28,7 +28,7 @@ public class Main {
         students.add(new Student("Тыщенко Леонид", 902, 86.75));
         students.add(new Student("Фахрутдинов Булат", 902, 84.875));
         students.add(new Student("Фёдорова Алина", 902, 77.375));
-        StudentSerialisation.write(students,"src\\test.txt");
-        System.out.println(StudentSerialisation.read("src\\test.txt").toString());
+        StudentSerialization.write(students,"src\\test.txt");
+        System.out.println(StudentSerialization.read("src\\test.txt").toString());
     }
 }
