@@ -1,6 +1,7 @@
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Objects;
 
 public class StudentDataOutputStream extends OutputStream {
 
@@ -74,6 +75,26 @@ public class StudentDataOutputStream extends OutputStream {
 
     public int size() {
         return out.size();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDataOutputStream that = (StudentDataOutputStream) o;
+        return Objects.equals(out, that.out);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(out);
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDataOutputStream{" +
+                "out=" + out +
+                '}';
     }
 
 }

@@ -2,6 +2,7 @@ import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class StudentDataInputStream extends InputStream {
 
@@ -93,6 +94,26 @@ public class StudentDataInputStream extends InputStream {
 
     public static String readUTF(DataInput in) throws IOException {
         return DataInputStream.readUTF(in);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDataInputStream that = (StudentDataInputStream) o;
+        return Objects.equals(in, that.in);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(in);
+    }
+
+    @Override
+    public String toString() {
+        return "StudentDataInputStream{" +
+                "in=" + in +
+                '}';
     }
 
 }
