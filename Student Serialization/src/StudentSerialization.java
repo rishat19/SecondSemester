@@ -6,30 +6,33 @@ import java.util.Collection;
 public class StudentSerialization {
 
     public static void write(Collection<Student> students, String path) {
-        try (OutputStream out = new FileOutputStream(path)) {
-            ByteBuffer sizeBuffer = ByteBuffer.allocate(Integer.BYTES);
-            sizeBuffer.putInt(students.size());
-            out.write(sizeBuffer.array());
-            out.flush();
-            for (Student student : students) {
-                ByteBuffer studentBuffer = ByteBuffer.allocate(Character.BYTES * student.getName().length() +
-                        2 * Integer.BYTES + Double.BYTES);
-                studentBuffer.putInt(student.getName().length());
-                for (int i = 0; i < student.getName().length(); i++) {
-                    studentBuffer.putChar(student.getName().charAt(i));
-                }
-                studentBuffer.putInt(student.getGroup());
-                studentBuffer.putDouble(student.getRating());
-                out.write(studentBuffer.array());
+        if (students != null) {
+            try (OutputStream out = new FileOutputStream(path)) {
+                ByteBuffer sizeBuffer = ByteBuffer.allocate(Integer.BYTES);
+                sizeBuffer.putInt(students.size());
+                out.write(sizeBuffer.array());
                 out.flush();
-                studentBuffer.clear();
+                for (Student student : students) {
+                    ByteBuffer studentBuffer = ByteBuffer.allocate(Character.BYTES * student.getName().length() +
+                            2 * Integer.BYTES + Double.BYTES);
+                    studentBuffer.putInt(student.getName().length());
+                    for (int i = 0; i < student.getName().length(); i++) {
+                        studentBuffer.putChar(student.getName().charAt(i));
+                    }
+                    studentBuffer.putInt(student.getGroup());
+                    studentBuffer.putDouble(student.getRating());
+                    out.write(studentBuffer.array());
+                    out.flush();
+                    studentBuffer.clear();
+                }
+            } catch (FileNotFoundException e) {
+                System.err.println("File not found.");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
-        catch (FileNotFoundException e) {
-            System.err.println("File not found.");
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        else {
+            throw new NullPointerException("Student collection points to zero.");
         }
     }
 
