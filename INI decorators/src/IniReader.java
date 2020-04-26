@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.CharBuffer;
 import java.util.Map;
+import java.util.Objects;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 
@@ -17,7 +18,7 @@ public class IniReader extends Reader {
             Map<String, String> keysAndValues = new TreeMap<>();
             String line = readLine();
             while (line != null) {
-                String[] keyAndValue = line.split("=");
+                String[] keyAndValue = line.split("=", 2);
                 keysAndValues.put(keyAndValue[0], keyAndValue[1]);
                 line = readLine();
             }
@@ -79,6 +80,26 @@ public class IniReader extends Reader {
     @Override
     public int read(char[] cbuf) throws IOException {
         return in.read(cbuf);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IniReader iniReader = (IniReader) o;
+        return Objects.equals(in, iniReader.in);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(in);
+    }
+
+    @Override
+    public String toString() {
+        return "IniReader{" +
+                "in=" + in +
+                '}';
     }
 
 }

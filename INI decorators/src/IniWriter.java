@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Map;
+import java.util.Objects;
 
 public class IniWriter extends Writer {
 
@@ -72,6 +73,26 @@ public class IniWriter extends Writer {
     @Override
     public Writer append(char c) throws IOException {
         return out.append(c);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IniWriter iniWriter = (IniWriter) o;
+        return Objects.equals(out, iniWriter.out);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(out);
+    }
+
+    @Override
+    public String toString() {
+        return "IniWriter{" +
+                "out=" + out +
+                '}';
     }
 
 }
