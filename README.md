@@ -66,7 +66,9 @@ INI decorators/src/IniWriter.java
 
 INI decorators/src/Main.java
 
-INI decorators/src/test.ini
+INI decorators/src/test1.ini
+
+INI decorators/src/test2.ini
 
 ### ДЗ №12
 
