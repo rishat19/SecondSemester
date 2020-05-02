@@ -10,7 +10,7 @@ public class Main {
     }
 
     public static void write(int number, char c) {
-        try (FileOutputStream out = new FileOutputStream("src\\test.txt")) {
+        try (OutputStream out = new FileOutputStream("src\\test.txt")) {
             out.write(number >>> 24 & 0xFF);
             out.write(number >>> 16 & 0xFF);
             out.write(number >>> 8 & 0xFF);
