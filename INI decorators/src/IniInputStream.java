@@ -1,22 +1,20 @@
 import java.io.*;
-import java.nio.CharBuffer;
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
-import java.util.stream.Stream;
 
-public class IniReader extends Reader {
+public class IniInputStream extends InputStream {
 
     private BufferedReader in;
 
-    public IniReader(Reader in) {
-        this.in = new BufferedReader(in);
+    public IniInputStream(InputStream in) {
+        this.in = new BufferedReader(new InputStreamReader(in));
     }
 
     public Map.Entry<String, String> readINILine() throws IOException {
         try {
-            String line = readLine();
+            String line = in.readLine();
             if (line != null) {
                 String[] keyAndValue = line.split("=", 2);
                 return new AbstractMap.SimpleEntry<>(keyAndValue[0], keyAndValue[1]);
@@ -37,64 +35,56 @@ public class IniReader extends Reader {
     }
 
     @Override
-    public int read(char[] cbuf, int off, int len) throws IOException {
+    public int read() throws IOException {
         return in.read();
     }
 
-    public String readLine() throws IOException {
-        return in.readLine();
+    @Override
+    public int read(byte[] b) throws IOException {
+        return super.read(b);
+    }
+
+    @Override
+    public int read(byte[] b, int off, int len) throws IOException {
+        return super.read(b, off, len);
     }
 
     @Override
     public long skip(long n) throws IOException {
-        return in.skip(n);
+        return super.skip(n);
     }
 
     @Override
-    public boolean ready() throws IOException {
-        return in.ready();
-    }
-
-    @Override
-    public boolean markSupported() {
-        return in.markSupported();
-    }
-
-    @Override
-    public void mark(int readAheadLimit) throws IOException {
-        in.mark(readAheadLimit);
-    }
-
-    @Override
-    public void reset() throws IOException {
-        in.reset();
-    }
-
-    public Stream<String> lines() {
-        return in.lines();
+    public int available() throws IOException {
+        return super.available();
     }
 
     @Override
     public void close() throws IOException {
-        in.close();
+        super.close();
     }
 
     @Override
-    public int read(CharBuffer target) throws IOException {
-        return in.read(target);
+    public synchronized void mark(int readlimit) {
+        super.mark(readlimit);
     }
 
     @Override
-    public int read(char[] cbuf) throws IOException {
-        return in.read(cbuf);
+    public synchronized void reset() throws IOException {
+        super.reset();
+    }
+
+    @Override
+    public boolean markSupported() {
+        return super.markSupported();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IniReader iniReader = (IniReader) o;
-        return Objects.equals(in, iniReader.in);
+        IniInputStream that = (IniInputStream) o;
+        return Objects.equals(in, that.in);
     }
 
     @Override
@@ -104,7 +94,7 @@ public class IniReader extends Reader {
 
     @Override
     public String toString() {
-        return "IniReader{" +
+        return "IniInputStream{" +
                 "in=" + in +
                 '}';
     }

@@ -26,9 +26,10 @@ public class Main {
     }
 
     public static void testIniLineWriter(Map<String, String> keysAndValues) {
-        try (IniWriter out = new IniWriter(new FileWriter("src\\test1.ini"))) {
+        try (IniOutputStream out = new IniOutputStream(new FileOutputStream("src\\test1.ini"))) {
             for (Map.Entry<String, String> entry : keysAndValues.entrySet()) {
                 out.writeINILine(entry);
+                out.flush();
             }
         }
         catch (IOException e) {
@@ -37,7 +38,7 @@ public class Main {
     }
 
     public static Map<String, String> testIniLineReader() {
-        try (IniReader in = new IniReader(new FileReader("src\\test1.ini"))) {
+        try (IniInputStream in = new IniInputStream(new FileInputStream("src\\test1.ini"))) {
             Map<String, String> map = new TreeMap<>();
             Map.Entry<String, String> entry;
             while ((entry = in.readINILine()) != null) {
@@ -52,8 +53,9 @@ public class Main {
     }
 
     public static void testIniWriter(Map<String, String> keysAndValues) {
-        try (IniWriter out = new IniWriter(new FileWriter("src\\test2.ini"))) {
+        try (IniOutputStream out = new IniOutputStream(new FileOutputStream("src\\test2.ini"))) {
             out.writeINI(keysAndValues);
+            out.flush();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +63,7 @@ public class Main {
     }
 
     public static Map<String, String> testIniReader() {
-        try (IniReader in = new IniReader(new FileReader("src\\test2.ini"))) {
+        try (IniInputStream in = new IniInputStream(new FileInputStream("src\\test2.ini"))) {
             return in.readINI();
         }
         catch (IOException e) {
