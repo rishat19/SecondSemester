@@ -2,76 +2,48 @@
 
 ### ДЗ №4
 
-Collections/src/SimpleUnmodifiableCollection.java
-
-Collections/src/SimpleModifiableCollection.java
-
-Collections/src/Main.java
+["Минимальные" коллекции](https://github.com/rishat19/SecondSemester/tree/master/Collections/src)
 
 ### ДЗ №5
 
-NavigableSet/src/NavSet.java
+[NavigableSet](https://github.com/rishat19/SecondSemester/tree/master/NavigableSet/src)
 
-NavigableSet/src/Main.java
-
-NavigableSet JavaDoc
+[NavigableSet JavaDoc](https://github.com/rishat19/SecondSemester/tree/master/NavigableSet%20JavaDoc)
 
 ### ДЗ №6
 
-MyMap/src/MyMap.java
-
-MyMap/src/Main.java
+[Map](https://github.com/rishat19/SecondSemester/tree/master/MyMap/src)
 
 ### ДЗ №7
 
-Stream/src/Tasks.java
+[Лямбда-выражения и Stream](https://github.com/rishat19/SecondSemester/tree/master/Stream/src)
 
 ### ДЗ №8
 
-IOStreams/src/Main.java
-
-IOStreams/src/test.txt
+[IOStreams](https://github.com/rishat19/SecondSemester/tree/master/IOStreams/src)
 
 ### ДЗ №9
 
-Student Serialization/src/StudentSerialization.java
-
-Student Serialization/src/Student.java
-
-Student Serialization/src/Main.java
-
-Student Serialization/src/test.txt
+[Сериализация студента](https://github.com/rishat19/SecondSemester/tree/master/Student%20Serialization/src)
 
 ### ДЗ №10
 
-Decorators/src/StudentDataInputStream.java
-
-Decorators/src/StudentDataOutputStream.java
-
-Decorators/src/StudentObjectInputStream.java
-
-Decorators/src/StudentObjectOutputStream.java
-
-Decorators/src/Student.java
-
-Decorators/src/Main.java
-
-Decorators/src/test.txt
+[Декораторы для студента](https://github.com/rishat19/SecondSemester/tree/master/Decorators/src)
 
 ### ДЗ №11
 
-INI decorators/src/IniReader.java
-
-INI decorators/src/IniWriter.java
-
-INI decorators/src/Main.java
-
-INI decorators/src/test1.ini
-
-INI decorators/src/test2.ini
+[Декораторы для INI-файлов](https://github.com/rishat19/SecondSemester/tree/master/INI%20decorators/src)
 
 ### ДЗ №12
 
-Regex/src/Regex.java
+[Регулярные выражения](https://github.com/rishat19/SecondSemester/tree/master/Regex/src)
 
-Regex/src/regexcrossword.png
+### ДЗ №13
+
+### ДЗ №15
+
+### ДЗ №16
+
+### ДЗ №17
+
+### ДЗ №18
