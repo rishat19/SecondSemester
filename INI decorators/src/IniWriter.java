@@ -12,12 +12,16 @@ public class IniWriter extends Writer {
         this.out = new BufferedWriter(out);
     }
 
+    public void writeINILine(Map.Entry<String, String> keyAndValue) throws IOException {
+        write(keyAndValue.getKey());
+        write('=');
+        write(keyAndValue.getValue());
+        write('\n');
+    }
+
     public void writeINI(Map<String, String> keysAndValues) throws IOException {
         for (Map.Entry<String, String> keyAndValue : keysAndValues.entrySet()) {
-            write(keyAndValue.getKey());
-            write('=');
-            write(keyAndValue.getValue());
-            write('\n');
+            writeINILine(keyAndValue);
         }
     }
 

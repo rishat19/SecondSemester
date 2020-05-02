@@ -1,5 +1,6 @@
 import java.io.*;
 import java.nio.CharBuffer;
+import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
@@ -13,20 +14,26 @@ public class IniReader extends Reader {
         this.in = new BufferedReader(in);
     }
 
-    public Map<String, String> readINI() throws IOException {
+    public Map.Entry<String, String> readINILine() throws IOException {
         try {
-            Map<String, String> keysAndValues = new TreeMap<>();
             String line = readLine();
-            while (line != null) {
+            if (line != null) {
                 String[] keyAndValue = line.split("=", 2);
-                keysAndValues.put(keyAndValue[0], keyAndValue[1]);
-                line = readLine();
+                return new AbstractMap.SimpleEntry<>(keyAndValue[0], keyAndValue[1]);
             }
-            return keysAndValues;
-        }
-        catch (ArrayIndexOutOfBoundsException e) {
+            return null;
+        } catch (ArrayIndexOutOfBoundsException e) {
             throw new IOException("Unable to read INI file", e);
         }
+    }
+
+    public Map<String, String> readINI() throws IOException {
+        Map<String, String> keysAndValues = new TreeMap<>();
+        Map.Entry<String, String> entry;
+        while ((entry = readINILine()) != null) {
+            keysAndValues.put(entry.getKey(), entry.getValue());
+        }
+        return keysAndValues;
     }
 
     @Override
