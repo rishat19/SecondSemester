@@ -44,8 +44,14 @@
 
 ### ДЗ №15
 
+[Консольный файловый менеджер (cd, ls, запуск приложений)](https://github.com/rishat19/SecondSemester/tree/master/SimpleCommandLineInterpreter/src)
+
 ### ДЗ №16
+
+[URI](https://github.com/rishat19/SecondSemester/tree/master/URI%20operations/src)
 
 ### ДЗ №17
 
 ### ДЗ №18
+
+[Консольный файловый менеджер (cp, rm)](https://github.com/rishat19/SecondSemester/tree/master/SimpleCommandLineInterpreter/src)
