@@ -1,0 +1,13 @@
+--- 
+- !Student
+  group: 902
+  name: Евсикова Ангелина
+  rating: !java.lang.Double 86.0
+- !Student
+  group: 902
+  name: Динер Александр
+  rating: !java.lang.Double 85.0
+- !Student
+  group: 902
+  name: Волкова Оливия
+  rating: !java.lang.Double 71.125

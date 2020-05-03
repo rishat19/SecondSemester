@@ -1,0 +1,4 @@
+--- !Student
+group: 902
+name: Ганиев Ришат
+rating: !java.lang.Double 95.0
