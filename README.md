@@ -52,6 +52,8 @@
 
 ### ДЗ №17
 
+[Простой Midi-редактор](https://github.com/rishat19/SecondSemester/tree/master/SimpleMidiEditor/src)
+
 ### ДЗ №18
 
 [Консольный файловый менеджер (cp, rm)](https://github.com/rishat19/SecondSemester/tree/master/SimpleCommandLineInterpreter/src)
