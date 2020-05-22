@@ -57,3 +57,6 @@
 ### ДЗ №18
 
 [Консольный файловый менеджер (cp, rm)](https://github.com/rishat19/SecondSemester/tree/master/SimpleCommandLineInterpreter/src)
+
+### ДЗ №20
+[Threads, скачивание файла](https://github.com/rishat19/SecondSemester/tree/master/FileDownload/src)
