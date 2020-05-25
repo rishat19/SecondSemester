@@ -50,11 +50,21 @@ public class DownloadThread extends Thread {
             return 100;
         }
         try {
-            return (double) (Files.size(filePath) / size) * 100;
+            return ((double) Files.size(filePath) / size) * 100;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public void deleteFile() throws IOException {
+        if (Files.exists(filePath)) {
+            Files.delete(filePath);
+        }
+    }
+
+    public boolean isFileExist() {
+        return Files.exists(filePath);
     }
 
 }

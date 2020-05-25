@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class FileDownloader {
 
     private static DownloadThread thread;
-    private static Scanner scanner;
 
     public static void main(String[] args) {
         String command;
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a command:");
         while (!(command = scanner.nextLine()).equals("exit")) {
             runCommand(command);
         }
@@ -19,21 +19,25 @@ public class FileDownloader {
             switch (commandName) {
                 case "download":
                     if (thread == null || thread.getState().equals(Thread.State.TERMINATED)) {
-                        System.out.println("Enter URI:");
-                        thread = new DownloadThread(scanner.next());
+                        thread = new DownloadThread(command.trim().split("\\s")[1]);
                         thread.start();
                     }
                     break;
                 case "status":
                     if (thread == null) {
                         System.out.println("Download has not yet begun.");
+                    } else if (!thread.isFileExist()) {
+                        System.out.println("Download has not yet begun.");
                     } else {
-                        System.out.println(thread.calculateDownloadPercentage() + "%");
+                        System.out.printf("%.2f%2s", thread.calculateDownloadPercentage(), "%\n");
                     }
                     break;
                 case "stop":
                     if (thread != null) {
-                        thread.interrupt();
+                        thread.deleteFile();
+                        if (thread.isInterrupted()) {
+                            thread.interrupt();
+                        }
                         System.out.println("Download interrupted.");
                     } else {
                         System.out.println("Download has not yet begun.");
@@ -44,7 +48,7 @@ public class FileDownloader {
                     break;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error.");
         }
     }
 
