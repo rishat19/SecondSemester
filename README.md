@@ -64,7 +64,7 @@
 
 ### ДЗ №19 (3)
 
-[Скачивание сайта]()
+[Скачивание сайта](https://github.com/rishat19/SecondSemester/tree/master/Site%20downloader/src)
 
 ### ДЗ №20
 [Threads, скачивание файла](https://github.com/rishat19/SecondSemester/tree/master/FileDownload/src)
