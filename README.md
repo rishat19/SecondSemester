@@ -58,5 +58,17 @@
 
 [Консольный файловый менеджер (cp, rm)](https://github.com/rishat19/SecondSemester/tree/master/SimpleCommandLineInterpreter/src)
 
+### ДЗ №19 (1, 2)
+
+[Печать текстового файла в консоль](https://github.com/rishat19/SecondSemester/tree/master/Printing%20text%20file/src)
+
+### ДЗ №19 (3)
+
+[Скачивание сайта]()
+
 ### ДЗ №20
 [Threads, скачивание файла](https://github.com/rishat19/SecondSemester/tree/master/FileDownload/src)
+
+### ДЗ №21
+
+[JUnit тесты](https://github.com/rishat19/SecondSemester/tree/master/Tests/src)
